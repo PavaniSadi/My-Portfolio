@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width-device-width,initial-scale=1.0">
+        <title>Personal Portfolio Website</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/a7faad8885.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+<div id="header">
+    <img src="images/mine2.jpg" alt="Background Image" id="background-img">
+    <div class="container">
+        <nav>
+            <h1 class="name"><strong>Pavani Sadi</strong></h1>
+            <ul id="sidemenu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+                <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+            <p>Software Developer</p>
+            <h1>Hi I'm <span>Pavani</span> <br>A Software developer</h1>
+        </div>
+    </div>
+</div>
+<!-- ---------About------- -->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/mine2.jpg" alt="user">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p class="style">I am pavani <br>I graduated from vignan institute of engineering for women in 2023 and subsequently gained work experience as a Dev Trainee at Technoidentity.</p>
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('Skills')">Skills</p>
+                    <p class="tab-links"  onclick="opentab('Experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('Education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="Skills">
+                    <ul>
+                        <li><span>Front-end developer</span><br>Creating multiple screens</li>
+                        <li><span>Web development</span><br>Creating multiple web pages</li>
+                    </ul>
+                </div>
+
+                <div class="tab-contents" id="Experience">
+                    <ul>
+                        <li><span>2023 mar-dec</span><br>Software Dev Trainee at Technoidentity</li>
+                    </ul>
+                </div>
+
+                <div class="tab-contents" id="Education">
+                    <ul>
+                        <li><span>2019-2023</span><br>B.tech from vignan's institute of engineering for women</li>
+                        <li><span>2017-2019</span><br>Intermediate from padmavathi junior college</li>
+                        <li><span>2017-2019</span><br>SSC from ViswaSanthi high school</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ----------- My Projects --------- -->
+<div id="services">
+    <div class="container">
+        <h1 class="sub-title">My Projects</h1>
+        <div class="services-list">
+            <div>
+                <i class="fa-solid fa-diagram-project"></i> 
+                <h2>Smart irrigation system using IoT through Blynk app</h2>
+                <p>The objective of this system is to detect the moisture content of the soil and and
+                    depending on it sprinkle water .This entire information will be sent to the user’s mobile
+                    phone.
+                     
+                </p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-list-check"></i>
+                <h2>Canteen Management System </h2>
+                <p>The primary goal of this project is to address many of the problems that
+                    come with managing canteens on campus.
+                </p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-code"></i>
+                <h2>Web development</h2>
+                <p>Created multiple webpages for an Internal project to maintain and document all
+                    the company records using ReactJS, HTML and Tailwind CSS.
+                </p>
+                <a href="#">Learn more</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-----------Contact----------->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 calss="sub-title">Contace Me</h1>
+                <p><i class="fa-solid fa-paper-plane"></i>sadipavani21@gmail.com</p>
+                <p><i class="fa-solid fa-square-phone"></i>9391456649</p>
+                <div class="social-icons">
+                    <a href="https://github.com/PavaniSadi"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/pavani-sadi-452660198/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/pavani_132/?next=%2F&hl=en"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <a href="images/Resume.pdf" download class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form>
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your email" required>
+                    <textarea name="message" rows="6" placeholder="Your message"></textarea>
+                    <button class="btn btn2 type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p><i class="fa-solid fa-copyright"></i>All rights reserved</p>
+    </div>
+</div>
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents =  document.getElementsByClassName("tab-contents");
+    function opentab(tabname){
+        for(tablink of tablinks)
+        {
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents)
+        {
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+<script>
+    var sideMenu = documnet.getElementById("sidemenu");
+    function openmenu(){
+        sideMenu.style.right = "0";
+    }
+    function closemenu(){
+        sideMenu.style.right = "-200px";
+    }
+</script>
+    </body>
+
+</html>
