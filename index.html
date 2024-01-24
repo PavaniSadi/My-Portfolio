@@ -15,11 +15,11 @@
         <nav>
             <h1 class="name"><strong>Pavani Sadi</strong></h1>
             <ul id="sidemenu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Service</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Service</a></li>
+                <!-- <li><a href="#">Portfolio</a></li> -->
+                <li><a href="#contact">Contact</a></li>
                 <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
             </ul>
             <i class="fa-solid fa-bars" onclick="openmenu()"></i>
@@ -79,8 +79,7 @@
                 <h2>Smart irrigation system using IoT through Blynk app</h2>
                 <p>The objective of this system is to detect the moisture content of the soil and and
                     depending on it sprinkle water .This entire information will be sent to the user’s mobile
-                    phone.
-                     
+                    phone.    
                 </p>
                 <a href="#">Learn more</a>
             </div>
@@ -119,12 +118,13 @@
                 <a href="images/Resume.pdf" download class="btn btn2">Download CV</a>
             </div>
             <div class="contact-right">
-                <form>
+                <form name="submit-to-google-sheet">
                     <input type="text" name="Name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your email" required>
                     <textarea name="message" rows="6" placeholder="Your message"></textarea>
-                    <button class="btn btn2 type="submit">Submit</button>
+                    <button  type="submit" class="btn btn2">Submit</button>
                 </form>
+                <span id="msg"></span>
             </div>
         </div>
     </div>
@@ -149,7 +149,7 @@
     }
 </script>
 <script>
-    var sideMenu = documnet.getElementById("sidemenu");
+    var sideMenu = document.getElementById("sidemenu");
     function openmenu(){
         sideMenu.style.right = "0";
     }
@@ -157,6 +157,24 @@
         sideMenu.style.right = "-200px";
     }
 </script>
-    </body>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwJyoFokVehjlJUPkv4r6mDX6oHlAqpCtdkgKLtaT9jh-QUeZ3EfXxs22JSvQa23BhV/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg=document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML ="Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML=""
+            },3000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
 
 </html>
